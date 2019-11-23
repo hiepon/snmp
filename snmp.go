@@ -98,7 +98,7 @@ import (
 	"reflect"
 	"sort"
 
-	"github.com/PromonLogicalis/asn1"
+	"github.com/hiepon/asn1"
 )
 
 // Getter is a function called to return a managed object value.

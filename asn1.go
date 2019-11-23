@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/PromonLogicalis/asn1"
+	"github.com/hiepon/asn1"
 )
 
 // SNMP error codes.

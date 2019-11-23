@@ -5,8 +5,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/PromonLogicalis/asn1"
-	"github.com/PromonLogicalis/snmp"
+	"github.com/hiepon/asn1"
+	"github.com/hiepon/snmp"
 )
 
 func main() {

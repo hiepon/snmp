@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/PromonLogicalis/asn1"
+	"github.com/hiepon/asn1"
 )
 
 // TODO test GetNextRequestPdu and SetRequestPdu
