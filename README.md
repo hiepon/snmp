@@ -1,23 +1,12 @@
----
 
-# WARNING
-
-## This repo has been archived!
-
-NO further developement will be made in the foreseen future.
-
----
-
-
-
-[![Build Status](https://travis-ci.org/PromonLogicalis/snmp.svg?branch=master)](https://travis-ci.org/PromonLogicalis/snmp) [![Go Report Card](https://goreportcard.com/badge/github.com/PromonLogicalis/snmp)](https://goreportcard.com/report/github.com/PromonLogicalis/snmp) [![GoDoc](https://godoc.org/github.com/PromonLogicalis/snmp?status.svg)](https://godoc.org/github.com/PromonLogicalis/snmp)
+[![Build Status](https://travis-ci.org/hiepon/snmp.svg?branch=master)](https://travis-ci.org/hiepon/snmp) [![Go Report Card](https://goreportcard.com/badge/github.com/hiepon/snmp)](https://goreportcard.com/report/github.com/hiepon/snmp) [![GoDoc](https://godoc.org/github.com/hiepon/snmp?status.svg)](https://godoc.org/github.com/hiepon/snmp)
 # snmp
 --
-    import "github.com/PromonLogicalis/snmp"
+    import "github.com/hiepon/snmp"
 
 Package snmp implements low-level support for SNMP with focus in SNMP agents.
 
-At the encoding level it uses the PromonLogicalis/asn1 to parse and serialize
+At the encoding level it uses the hiepon/asn1 to parse and serialize
 SNMP messages providing Go types for that.
 
 The package also provides transport-independent support for creating custom SNMP
@@ -32,8 +21,8 @@ A example of a simple SNMP UDP agent:
     	"net"
     	"time"
 
-    	"github.com/PromonLogicalis/asn1"
-    	"github.com/PromonLogicalis/snmp"
+    	"github.com/hiepon/asn1"
+    	"github.com/hiepon/snmp"
     )
 
     func main() {
