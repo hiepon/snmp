@@ -353,3 +353,117 @@ func TestEncDecObjectIdentifier(t *testing.T) {
 		t.Errorf("Decode error. '%#v' '%#v'", result.Value, msg.Value)
 	}
 }
+
+func TestEncDecNoSuchObject(t *testing.T) {
+	var (
+		data []byte
+		err  error
+	)
+
+	type Message struct {
+		Value interface{} `asn1:"choice:val"`
+	}
+	msg := Message{
+		Value: NoSuchObject{},
+	}
+
+	b := []byte{
+		0x30, 0x02, 0x80, 0x00,
+	}
+
+	ctxt := Asn1Context()
+	ctxt.SetDer(true, true)
+
+	data, err = ctxt.Encode(msg)
+	if err != nil {
+		t.Fatalf("Encode error. %s", err)
+	}
+	if bytes.Compare(data, b) != 0 {
+		t.Fatalf("Encode error. %v", data)
+	}
+
+	var result Message
+	if _, err = ctxt.Decode(data, &result); err != nil {
+		t.Errorf("Decode error. %s", err)
+	}
+
+	if _, ok := result.Value.(NoSuchObject); !ok {
+		t.Errorf("Decode error. %T", result.Value)
+	}
+}
+
+func TestEncDecNoSuchInstance(t *testing.T) {
+	var (
+		data []byte
+		err  error
+	)
+
+	type Message struct {
+		Value interface{} `asn1:"choice:val"`
+	}
+	msg := Message{
+		Value: NoSuchInstance{},
+	}
+
+	b := []byte{
+		0x30, 0x02, 0x81, 0x00,
+	}
+
+	ctxt := Asn1Context()
+	ctxt.SetDer(true, true)
+
+	data, err = ctxt.Encode(msg)
+	if err != nil {
+		t.Fatalf("Encode error. %s", err)
+	}
+	if bytes.Compare(data, b) != 0 {
+		t.Fatalf("Encode error. %v", data)
+	}
+
+	var result Message
+	if _, err = ctxt.Decode(data, &result); err != nil {
+		t.Errorf("Decode error. %s", err)
+	}
+
+	if _, ok := result.Value.(NoSuchInstance); !ok {
+		t.Errorf("Decode error. %T", result.Value)
+	}
+}
+
+func TestEncDecEndOfMibView(t *testing.T) {
+	var (
+		data []byte
+		err  error
+	)
+
+	type Message struct {
+		Value interface{} `asn1:"choice:val"`
+	}
+	msg := Message{
+		Value: EndOfMibView{},
+	}
+
+	b := []byte{
+		0x30, 0x02, 0x82, 0x00,
+	}
+
+	ctxt := Asn1Context()
+	ctxt.SetDer(true, true)
+
+	data, err = ctxt.Encode(msg)
+	if err != nil {
+		t.Fatalf("Encode error. %s", err)
+	}
+	if bytes.Compare(data, b) != 0 {
+		t.Fatalf("Encode error. %v", data)
+	}
+
+	var result Message
+	if _, err = ctxt.Decode(data, &result); err != nil {
+		t.Errorf("Decode error. %s", err)
+	}
+
+	if _, ok := result.Value.(EndOfMibView); !ok {
+		t.Errorf("Decode error. %T", result.Value)
+	}
+}
